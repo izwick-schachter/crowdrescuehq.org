@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CrowdRescueHQ</title>
+    <%= csrf_meta_tags %>
+
+    <!-- jquery -->
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.1.1.min.js' %>
+
+    <!-- bootstrap -->
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js' %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- fontawesome -->
+    <%= javascript_include_tag 'https://use.fontawesome.com/4cf802a098.js' %>
+
+    <!-- turbolinks -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="jumbotron" id="header-image">
+      <%= render "layouts/carousel" %>
+    </div>
+    <nav class="nav-justified navbar-expand-md sticky-top navbar-light bg-light">
+      <div class="container">
+        <%= render "layouts/navbar" %>
+      </div>
+    </nav>
+
+    <% flash.each do |k, v| %>
+      <div class="alert alert-<%= k == 'alert' ? 'danger' : (k == 'notice' ? 'info' : k) %>">
+        <%= v %>
+      </div>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+
+      <hr>
+
+      <h2>Learn More</h2>
+
+      <p>Read about <%= link_to "Our Story", our_story_path %></p>
+
+      <hr>
+
+      <p>CrowdRescue HQ is a mission-driven organization. Right now we are focused on our own: <i>Who are we? Where can we improve? What opportunities do we anticipate seeking? How can we do better to support people and other organizations doing good things?</i> Stay tuned. We have exciting things in store!</p>
+
+      <p>Read about our <%= link_to "Past Projects", past_projects_path %></p>
+
+      <hr>
+
+      <h2>Contact Us</h2>
+
+      <p><strong>Email:</strong> <%= link_to 'CrowdRescueHQ@gmail.com', 'mailto:CrowdRescueHQ@gmail.com' %></p>
+
+    </div>
+  </body>
+</html>

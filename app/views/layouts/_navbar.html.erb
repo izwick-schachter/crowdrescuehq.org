@@ -1,0 +1,23 @@
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item <%= 'active' if params[:active] == 'home' %>">
+      <%= link_to "Home", root_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item <%= 'active' if params[:active] == 'about' %>">
+      <%= link_to "About", about_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item <%= 'active' if params[:active] == 'volunteers' %>">
+      <%= link_to "Volunteers", volunteers_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item <%= 'active' if params[:active] == 'media' %>">
+      <%= link_to "Media", media_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item <%= 'active' if params[:active] == 'pr_map' %>">
+      <%= link_to "Puerto Rico Info Map", pr_map_path, class: 'nav-link' %>
+    </li>
+  </ul>
+</div>
