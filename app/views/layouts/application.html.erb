@@ -24,12 +24,32 @@
   </head>
 
   <body>
-    <div class="jumbotron" id="header-image">
-      <%= render "layouts/carousel" %>
+    <div class="jumbotron text-center" id="header-image">
+      <%= image_tag "CRHQ_Logo.png", class: 'img' %>
     </div>
-    <nav class="nav-justified navbar-expand-md sticky-top navbar-light bg-light">
-      <div class="container">
-        <%= render "layouts/navbar" %>
+    <nav class="navbar-expand-md sticky-top navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse nav-justified" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-justified mr-auto container">
+          <li class="nav-item <%= 'active' if params[:active] == 'home' %>">
+            <%= link_to "Home", root_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item <%= 'active' if params[:active] == 'about' %>">
+            <%= link_to "About", about_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item <%= 'active' if params[:active] == 'volunteers' %>">
+            <%= link_to "Volunteers", volunteers_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item <%= 'active' if params[:active] == 'media' %>">
+            <%= link_to "Media", media_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item <%= 'active' if params[:active] == 'pr_map' %>">
+            <%= link_to "Puerto Rico Info Map", pr_map_path, class: 'nav-link' %>
+          </li>
+        </ul>
       </div>
     </nav>
 

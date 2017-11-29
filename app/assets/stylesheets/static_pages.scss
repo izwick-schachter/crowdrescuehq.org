@@ -6,4 +6,10 @@
   background-image:image-url('CRHQ_Header.png');
   background-size: cover;
   margin-bottom:0;
+  background-color: none !important;
+}
+
+#header-image .img {
+  max-width:100%;
+  max-height:100%;
 }
