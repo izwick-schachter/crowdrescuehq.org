@@ -1,0 +1,72 @@
+<h1>Pa'lante Municipios</h1>
+
+<%= image_tag "Onward_Muni", class: 'img-fluid' %>
+
+<p>Months have passed since Hurricane María, yet thousands of families remain isolated without electricity or safe water. In Puerto Rico's vibrant cities, people leave work and return home to persistent darkness. In the beautiful countryside, rivers and springs are contaminated. Houses lack roofs, and people everywhere are living with dangerous mold, surrounded by debris that was never cleared away. Each municipality has a different topography and character, and each faces different circumstances in this ongoing crisis.</p>
+
+<h3>What is Pa'lante Municipios (Onward Municipalities)?</h3>
+
+<p>When the hurricanes swept through Puerto Rico in September, volunteers around the world worked together to crowd source information. Communications on the island were devastated, so CrowdRescue HQ gathered, vetted, confirmed, and shared information through detailed maps and broadcasts that were used to guide rescue efforts on the ground.</p>
+
+<p>Nearly three months later, we’re sharing information about the continuing emergency. We hope that individuals and organizations will be inspired to partner with Puerto Rico’s 78 Municipalities (municipios) to support their ongoing work of recovery—rebuilding and moving forward. ¡Pa’lante!</p>
+
+<h3>What can you do?</h3>
+
+<p>First, be a friend to the people of Puerto Rico. Watch. Pay attention. Make connections with residents of a municipality, and listen to their stories. If you can't help directly, find someone who can. Get the word out through your own social networks. Be an advocate!</p>
+
+<p>Puerto Rico needs friends, partners, and sponsors. Ideally, each one of the island’s municipalities would be partnered with a sponsoring organization to help them recover and rebuild.</p>
+
+<p>If you'd like to help or know others who could, please email us at <a href="mailto:crowdrescuehq@gmail.com">crowdrescuehq@gmail.com</a>.</p>
+
+<p>If you’re already a partnering with a municipality—or have ideas about how to amplify this call for support—we want to hear from you!</p>
+
+<hr>
+
+<h1>List of Municipalities</h1>
+
+<p>Below, you'll find a list of each municipality in Puerto Rico with a visual overview of the municipality's needs.</p>
+
+<p>Click the <b>MUNICIPALITY'S NAME</b> to view a narrative description of resource status for that municipality.</p>
+
+<p>Click <%= link_to "HERE", 'https://www.bit.ly/onwardmunifinal' %> to view a spreadsheet including the information and sources that shaped these overviews.</p>
+
+<p><b>NOTE:</b> Assessments were current as of approximately December 1, 2017. Assessments are based on publicly available data sourced from government and agency websites, social media feeds, and citizen reports. Reasonable attempts have been made to confirm validity of all information, but no claims are made in terms of actual state.</p>
+
+<hr>
+
+<h3>Status key:</h3>
+
+<p>Each municipality has been designated an assessment "grade" based on several factors. Most municipalities do not fall neatly into a specific category. Designations are based on a preponderance of criteria being met.</p>
+
+<div class='container'>
+  <p><b>ON PLAN:</b> Municipality has routine access to potable water and food, and access to communications. Emergency services are back.</p>
+
+  <p><b>AHEAD OF PLAN:</b> Municipality meets all ON PLAN criteria, PLUS schools are open.</p>
+
+  <p><b>BEHIND PLAN:</b> Municipality has access to water and food, but access is still limited. Communications are limited. Emergency services are limited.</p>
+
+  <p><b>SEVERELY BEHIND PLAN:</b> Potable water and food is in doubt. Communications are very unstable. Emergency services are absent or severely limited.</p>
+</div>
+
+<hr>
+
+<h3>Icon key:</h3>
+
+<p>Each municipality's access to basic needs has been assessed. Icons represent <b>NEEDS</b>. For example, if the 'water' icon is present under a municipality's header, that municipality <b>NEEDS</b> better access to water. </p>
+
+<%= image_tag 'Onward_Muni_Icons', class: 'img-fluid' %>
+
+<% @munis.each do |muni| %>
+  <hr>
+  <h3 id="<%= muni.name %>"><%= muni.name %></h3>
+  <br>
+  <p><b>RESOURCE NEEDS:</b></p>
+  <% muni.needs.each do |need| %>
+  <%= image_tag "Onward_Muni_#{need}_Icon", style: 'width:20px' %>
+  <% end %>
+  <br><br>
+  <div class='container'>
+    <p>Status: <b><%= muni.status %></b></p>
+    <p>Sponsors: <b><%= muni.sponsors %></b></p>
+  </div>
+<% end %>

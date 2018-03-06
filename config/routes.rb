@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   scope 'sub' do
     get 'our_story', to: 'static_pages#our_story', as: :our_story
     get 'past_projects', to: 'static_pages#past_projects', as: :past_projects
+    get 'infographics', to: 'static_pages#infographics', as: :infographics
+  end
+
+  scope 'projects' do
+    get 'palante-municpios', to: 'static_pages#onward_muni', as: :onward_muni
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
